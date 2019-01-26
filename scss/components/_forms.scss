@@ -1,0 +1,20 @@
+.form {
+  flex-basis: 100%;
+  &__input {
+    width: 94%;
+    margin-top: 10px;
+    @extend %centered;
+    border: none;
+    padding: 10px;
+    border-bottom: 5px solid map-get($map: $colors, $key: text-headline );
+  }
+  &__label {
+    &--hidden {
+      @extend %srt;
+    }
+  }
+
+  [class^=btn] {
+    width: 100%;
+  }
+}

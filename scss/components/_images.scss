@@ -1,0 +1,16 @@
+.img {
+  &--avatar {
+    @extend %images;
+  }
+
+  &--frame {
+    @extend %images;
+    padding: 13px;
+    border: 1px solid #ccc;
+  }
+
+  &--logo {
+    @extend %centered-mobile;
+  }
+
+}

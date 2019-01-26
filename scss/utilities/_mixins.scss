@@ -1,0 +1,89 @@
+
+// handle media queries
+@mixin mq($key: "m") {
+  
+  // get the breakpoint value from map
+  $break-value: map-get($breakpoints, $key );
+
+  // throw error for invalid key
+  @if $break-value == null {
+    $error-message-values: "";
+
+    // loop through map to display acceptable values
+    @each $var, $value  in $breakpoints {
+      $error-message-values: $error-message-values + $var + " ";
+    }
+    @error "$key value not found, was #{$key}, should be #{$error-message-values}";
+  }
+  @media (min-width: $break-value) {
+    @content;
+  }
+}
+
+// flexbox setting for container elements
+@mixin flex-containers(
+  $base-direction: null, 
+  $justification: null, 
+  $wrap: null, 
+  $breakpoint: null,  
+  $alt-direction: null, 
+  $alt-justify: null
+  ) {
+    display: flex;
+    flex-direction: $base-direction;
+    justify-content: $justification;
+    flex-wrap: $wrap;
+    @if $breakpoint {
+      @include mq($breakpoint) {
+        flex-direction: $alt-direction;
+        justify-content: $alt-justify;
+      };
+    }
+}
+
+
+// format buttons
+@mixin button-themes {
+
+  // pull button color map from colors map
+  $button-colors : map-get($map: $colors, $key: buttons);
+
+  @each $key, $color in $button-colors {
+    // use key to complete class name ie "success"
+    &--#{$key}.theme__colors {
+      @extend %buttons;
+      background-color: $color;
+    }
+  }
+}
+
+// create grid columns dynamically
+@mixin grids($total_columns: 12) {
+
+  // loop through each column size
+  @for $i from 1 through $total_columns {
+    &--#{$i} {
+
+      // add in base styles
+      @extend %grid-cols;
+
+      @include mq {
+        // make column width a percentage of the column number / total columns
+        flex-basis: #{$i / $total_columns * 100} + "%";
+      }
+
+      // add colors for theme colored columns
+      &.theme__colors {
+        border-radius: $border-rounded;
+        background-color: 
+            map-get(
+              $map: map-get($map: $colors, $key: grid), 
+              $key: $i);
+
+        @include mq {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

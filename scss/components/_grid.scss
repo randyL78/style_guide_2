@@ -1,0 +1,30 @@
+.centered {
+  @extend %centered-tablet;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.card {
+  flex-basis: 100%;
+}
+
+.grid {
+  &__row {
+    padding: 1em 10px;
+    @include flex-containers(column, null, no-wrap, m, row);
+  }
+
+  &__col {
+    @include grids(12);
+  }
+}
+
+[class^=grid__col] {
+  & + & {
+    @include mq {
+      margin-left: 10px;
+    }
+  }
+}

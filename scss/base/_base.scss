@@ -1,0 +1,13 @@
+* {
+  font-family: $font-stack;
+  color: map-get($map: $colors, $key: text-primary);
+  box-sizing: border-box;
+}
+
+p {
+  line-height: 1.45em;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,42 @@
+// border configurations
+$border-rounded : 5px;
+
+// breakpoints
+$breakpoints: (
+  s : 488px,
+  m : 768px,
+  l : 1024px,
+  xl: 1400px
+);
+
+// colors
+$colors: (
+  text-primary  : #888,
+  text-headline : #58e1c1,
+  text-link     : #51ddfc,
+  buttons: (
+    info    : #927bc1,
+    warning : #fd7856,
+    error   : #e4757a,
+    success : #63cc82,
+    default : #51ddfc
+  ),
+  grid: (
+    1 : #927bc1,
+    2 : #fd7856,
+    3 : #deb2ee,
+    4 : #7ee6fd,
+    5 : #88d9a0,
+    6 : #4da2bb,
+    7 : #ec9fa3,
+    8 : #fd9f85,
+    9 : #e4757a,
+    10: #63cc82,
+    11: #51ddfc,
+    12: #80e8d1
+  )
+);
+
+// fonts
+$font-stack: 'Helvetica', 'Lato', sans-serif;
+$font-url: 'https://fonts.googleapis.com/css?family=Lato:300, 300i, 400,700';

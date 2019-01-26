@@ -1,0 +1,72 @@
+// center block level elements after medium sized media query
+%centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// centered on mobile sive only
+%centered-mobile {
+  @extend %centered;
+  @include mq {
+    margin-left: initial;
+    margin-right: initial;
+  }
+}
+
+// center block level elements after medium sized media query
+%centered-tablet {
+  @include mq {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// button base styles
+%buttons {
+  margin-top: 15px;
+  width: 100%;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  text-transform: uppercase;
+  border-radius: $border-rounded;
+  @include mq {
+    width: auto;
+    padding: 10px 30px;
+    margin: 10px auto 0;
+  }
+}
+
+// base image styles
+%images {
+  @extend %centered;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+// general grid column styles
+%grid-cols {
+
+  margin-top: 10px;
+  flex-basis: 100%;
+  min-height: 25px;
+  padding: 10px;
+  
+  @include mq {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+
+// text visible for screen readers only 
+%srt {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}

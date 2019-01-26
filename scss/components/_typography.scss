@@ -1,0 +1,28 @@
+// import themed font
+@import url($font-url);
+
+.headline {
+  &--primary {
+    color: map-get($map: $colors, $key: text-headline);
+    margin-left: 10px;
+  }
+  &--secondary {
+    font-weight: 300;
+    color: #aaa;
+  }
+}
+
+.link {
+  color: map-get($map: $colors, $key: text-link);
+  font-weight: 700;
+}
+
+.blockquote {
+  font-size: 1.5em;
+  font-weight: 300;
+  font-style: italic;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 8px solid map-get($map: $colors, $key: text-headline);
+  border-radius: $border-rounded;
+}
