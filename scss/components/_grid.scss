@@ -13,7 +13,7 @@
 .grid {
   &__row {
     padding: 1em 10px;
-    @include flex-containers(column, null, no-wrap, m, row);
+    @include flex-containers(column, null, null, m, row);
   }
 
   &__col {
